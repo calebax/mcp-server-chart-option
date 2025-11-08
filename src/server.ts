@@ -6,7 +6,7 @@ import {
 import * as Charts from "./charts/index.js";
 import { ComponentName } from "./builders/type.js";
 import {
-  // startHTTPStreamableServer,
+  startHTTPStreamableServer,
   startStdioMcpServer,
 } from "./services/index.js";
 import { logger } from "./utils/logger.js";
@@ -68,4 +68,21 @@ function setupToolHandlers(server: Server, component: ComponentName): void {
 export async function runStdioServer(component: string): Promise<void> {
   const server = createServer(component);
   await startStdioMcpServer(server);
+}
+
+/**
+ * Runs the server with HTTP streamable transport.
+ */
+export async function runHTTPStreamableServer(
+  component: string,
+  host = "localhost",
+  port = 1755,
+  endpoint = "/mcp"
+): Promise<void> {
+  await startHTTPStreamableServer(
+    () => createServer(component),
+    endpoint,
+    port,
+    host
+  );
 }

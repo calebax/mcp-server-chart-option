@@ -1,6 +1,6 @@
 #!/usr/bin/env node
 import { parseArgs } from "node:util";
-import { runStdioServer } from "./server.js";
+import { runStdioServer, runHTTPStreamableServer } from "./server.js";
 import { logger } from "./utils/logger.js";
 
 // Parse command line arguments
@@ -59,6 +59,10 @@ const component = values.component || "echarts";
 
 if (transport === "streamable") {
   logger.setIsStdio(false);
+  const port = Number.parseInt(values.port as string, 10);
+  const endpoint = values.endpoint || "/mcp";
+  const host = values.host || "localhost";
+  runHTTPStreamableServer(component, host, port, endpoint).catch(console.error);
 } else {
   logger.setIsStdio(true);
   runStdioServer(component).catch(console.error);
