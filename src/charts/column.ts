@@ -10,7 +10,6 @@ const data = z.object({
 });
 
 const schema = {
-  title: TitleSchema,
   data: z
     .array(data)
     .describe(
@@ -31,6 +30,7 @@ const schema = {
     .describe(
       "Whether stacking is enabled. When enabled, column charts require a 'group' field in the data. When `stack` is true, `group` should be false."
     ),
+  title: TitleSchema,
   axisXTitle: AxisXTitleSchema,
   axisYTitle: AxisYTitleSchema,
 };

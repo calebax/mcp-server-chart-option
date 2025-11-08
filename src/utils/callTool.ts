@@ -9,6 +9,7 @@ import { logger } from "./logger.js";
 const CHART_TYPE_MAP = {
   create_pie_chart_option: "pie",
   create_column_chart_option: "column",
+  create_line_chart_option: "line",
 } as const;
 
 /**

@@ -8,13 +8,13 @@ const data = z.object({
 });
 
 const schema = {
-  title: TitleSchema,
   data: z
     .array(data)
     .describe(
       "Data for pie chart, it should be an array of objects, each object contains a `name` field and a `value` field, such as, [{ name: '分类一', value: 27 }]."
     )
     .nonempty({ message: "Pie chart data cannot be empty." }),
+  title: TitleSchema,
 };
 
 const tool = {
