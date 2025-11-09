@@ -1,12 +1,12 @@
 {
-  "name": "mcp-server-chart-option",
+  "name": "mcp-chart-option",
   "version": "0.0.1",
   "license": "MIT",
   "type": "module",
   "main": "build/index.js",
   "repository": {
     "type": "git",
-    "url": "https://github.com/calebax/mcp-server-chart-option"
+    "url": "https://github.com/calebax/mcp-chart-option"
   },
   "scripts": {
     "clean": "rm -rf build/*",
@@ -22,7 +22,7 @@
     ]
   },
   "bin": {
-    "mcp-server-chart-option": "./build/index.js"
+    "mcp-chart-option": "./build/index.js"
   },
   "publishConfig": {
     "registry": "https://registry.npmjs.org/",

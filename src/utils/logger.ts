@@ -1,7 +1,7 @@
 /**
  * Unified logger for consistent logging across the application
  */
-const prefix = "[MCP-Server-Chart-Option]";
+const prefix = "[MCP-Chart-Option]";
 
 /**
  * Indicates if the logger is in stdio mode.
