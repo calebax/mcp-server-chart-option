@@ -31,7 +31,93 @@
 
 ## 集成使用
 
-在 MCP 客户端中注册该服务，即可开始使用。
+MCP Server 可被多种 **支持 MCP 协议的客户端** 自动调用，例如：
+
+- Claude Desktop / VSCode / Cursor / Cherry Studio / Cline 等。
+
+Mac 系统配置:
+
+```json
+{
+  "mcpServers": {
+    "mcp-chart-option": {
+      "command": "npx",
+      "args": ["-y", "mcp-chart-option"]
+    }
+  }
+}
+```
+
+Windows 系统配置:
+
+```json
+{
+  "mcpServers": {
+    "mcp-chart-option": {
+      "command": "cmd",
+      "args": ["/c", "npx", "-y", "mcp-chart-option"]
+    }
+  }
+}
+```
+
+
+
+## 以 Streamable 模式运行
+
+### 直接运行
+
+全局安装.
+
+```bash
+npm install -g mcp-chart-option
+```
+
+启动服务
+
+```bash
+# Streamable 模式运行
+mcp-chart-option --transport streamable
+```
+
+服务启动后可通过以下地址访问：
+
+- Streamable transport: `http://localhost:1755/mcp`
+
+### Docker 部署
+
+进入 docker 目录：
+
+```bash
+cd docker
+```
+
+启动容器：
+
+```bash
+docker compose up -d
+```
+
+访问地址：
+
+- Streamable 模式: http://localhost:1755/mcp
+
+## CLI Options
+
+```plain
+MCP Chart Option CLI
+
+Options:
+  --transport, -t  Specify the transport protocol: "stdio", "streamable" (default: "stdio")
+  --host, -h       Specify the host for streamable transport (default: localhost)
+  --port, -p       Specify the port for streamable transport (default: 1755)
+  --endpoint, -e   Specify the endpoint for the transport:
+                   - For streamable: default is "/mcp"
+  --component, -c  Specify the chart component to use, e.g. "echarts", (default: "echarts")
+  --help, -H       Show this help message
+```
+
+
 
 ## 示例
 
@@ -67,4 +153,4 @@
 
 ## 参考
 
-[mcp-server-chart](https://github.com/antvis/mcp-server-chart)
+[mcp-server-chart (AntV)](https://github.com/antvis/mcp-server-chart)

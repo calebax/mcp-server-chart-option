@@ -1,0 +1,11 @@
+name: mcp-chart-option
+services:
+  streamable:
+    restart: unless-stopped
+    build:
+      context: .
+      dockerfile: Dockerfile
+    ports:
+      - "1755:1755"
+    expose:
+      - "1755"
